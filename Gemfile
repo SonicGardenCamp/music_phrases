@@ -73,3 +73,6 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem "will_paginate",           "3.3.1"
+gem "bootstrap-will_paginate", "1.0.0"

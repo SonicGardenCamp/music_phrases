@@ -1,10 +1,69 @@
-<p style="color: green"><%= notice %></p>
+<div class="container-fluid mt-5">
 
-<%= render @phrase %>
+  <!-- Row for Content -->
+  <div class="row mb-3">
 
-<div>
-  <%= link_to "Edit this phrase", edit_phrase_path(@phrase) %> |
-  <%= link_to "Back to phrases", phrases_path %>
+    <!-- Content Section -->
+    <div class="col-12">
+      <!-- Large box for the content -->
+      <div class="border p-3" style="height: 12.5vh;">
+        <strong>Content:</strong> <%= @phrase.content %>
+      </div>
+    </div>
 
-  <%= button_to "Destroy this phrase", @phrase, method: :delete %>
+  </div>
+
+  <!-- Row for Music Details, Author, and URL -->
+  <div class="row mb-3">
+
+    <!-- Music Title Section -->
+    <div class="col-lg-3 col-md-6 col-sm-12 mb-2">
+      <div class="border p-3">
+        <strong>Music title:</strong> <%= @phrase.music_title %>
+      </div>
+    </div>
+
+    <!-- Artist Name Section -->
+    <div class="col-lg-3 col-md-6 col-sm-12 mb-2">
+      <div class="border p-3">
+        <strong>Artist Name:</strong> <%= @phrase.artist_name %>
+      </div>
+    </div>
+
+    <!-- Author Name Section -->
+    <div class="col-lg-3 col-md-6 col-sm-12 mb-2">
+      <div class="border p-3">
+        <strong>Author name:</strong> <%= @phrase.author_name %>
+      </div>
+    </div>
+
+    <!-- Play URL Section -->
+    <div class="col-lg-3 col-md-6 col-sm-12 mb-2">
+      <div class="border p-3">
+        <strong>Play url:</strong> <%= @phrase.play_url %>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Row for Comment -->
+  <div class="row mt-5">
+
+    <!-- Comment Section -->
+    <div class="col-12">
+      <!-- Giving this a slightly bigger box -->
+      <div class="border p-3" style="height: 35vh;">
+        <strong>Comment:</strong> <%= @phrase.comment %>
+      </div>
+    </div>
+
+  </div>
+
 </div>
+
+<div class="mt-2">
+  <%= link_to "Edit this phrase", edit_phrase_path(@phrase) %> |
+  <%= link_to "Back to phrases", phrases_path %> |
+  <%= button_to "Destroy this phrase", @phrase, method: :delete, class: "btn btn-light mt-2" %>
+</div>
+

@@ -1,14 +1,33 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Phrases</h1>
+<h1>Good Music Phrases</h1>
 
-<div id="phrases">
-  <% @phrases.each do |phrase| %>
-    <%= render phrase %>
-    <p>
-      <%= link_to "Show this phrase", phrase %>
-    </p>
-  <% end %>
+
+
+<%= link_to "New phrase", new_phrase_path, class: "btn btn-light mb-3" %>
+<!-- Bootstrapのグリッドシステム -->
+<div class="container">
+  <div class="row">
+    <% @phrases.each_with_index do |phrase, index| %>
+      <!-- フレーズのカード -->
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title"><%= phrase.content %></h5>
+            <%= link_to "Show this phrase", phrase, class: "btn btn-light" %>
+          </div>
+        </div>
+      </div>
+      <!-- 3つのアイテムごとの行の終わりと新しい行の開始 -->
+      <% if (index + 1) % 3 == 0 %>
+        </div><div class="row">
+      <% end %>
+    <% end %>
+  </div>
 </div>
 
-<%= link_to "New phrase", new_phrase_path %>
+<%= will_paginate @phrases, renderer: bootstrap_paginate_renderer, previous_label: "前へ", next_label: "次へ" %>
+
+
+
+

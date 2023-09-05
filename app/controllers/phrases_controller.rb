@@ -3,8 +3,9 @@ class PhrasesController < ApplicationController
 
   # GET /phrases or /phrases.json
   def index
-    @phrases = Phrase.all
+    @phrases = Phrase.paginate(page: params[:page], per_page: 10) # 1ページに10項目を表示
   end
+  
 
   # GET /phrases/1 or /phrases/1.json
   def show
@@ -65,6 +66,6 @@ class PhrasesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def phrase_params
-      params.require(:phrase).permit(:content, :music_title, :comment, :author_name, :play_url)
+      params.require(:phrase).permit(:content, :music_title, :comment, :author_name, :play_url, :artist_name)
     end
 end

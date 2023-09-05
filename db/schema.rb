@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_05_005020) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_05_055655) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,6 +22,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_05_005020) do
     t.string "play_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "artist_name"
   end
 
 end
