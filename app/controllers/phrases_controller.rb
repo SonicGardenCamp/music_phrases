@@ -3,7 +3,7 @@ class PhrasesController < ApplicationController
 
   # GET /phrases or /phrases.json
   def index
-    @phrases = Phrase.paginate(page: params[:page], per_page: 10) # 1ページに10項目を表示
+    @phrases = Phrase.all.page(params[:page]).per(12)
   end
   
 

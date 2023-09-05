@@ -74,5 +74,5 @@ group :test do
   gem "webdrivers"
 end
 
-gem "will_paginate",           "3.3.1"
-gem "bootstrap-will_paginate", "1.0.0"
+gem 'kaminari', '~> 1.2', '>= 1.2.1'
+gem 'bootstrap5-kaminari-views', '~> 0.0.1'
