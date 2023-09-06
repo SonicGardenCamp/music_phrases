@@ -1,16 +1,10 @@
 <%= form_with(model: phrase) do |form| %>
   <% if phrase.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(phrase.errors.count, "error") %> prohibited this phrase from being saved:</h2>
-
-      <ul>
-        <% phrase.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+      <h2><%= phrase.errors.full_messages.map { |msg| msg == "Play url is not a valid YouTube ID" ? "プレイURLが正しいYouTubeのIDではありません" : msg }.join('、') %>のため、フレーズを保存できませんでした。</h2>
     </div>
   <% end %>
-
+  
   <div>
     <%= form.label :content, style: "display: block" %>
     <%= form.text_field :content %>

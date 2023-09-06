@@ -23,6 +23,8 @@ class PhrasesController < ApplicationController
   # POST /phrases or /phrases.json
   def create
     @phrase = Phrase.new(phrase_params)
+    url = params[:phrase][:play_url]
+    @phrase.play_url = url.last(11)
 
     respond_to do |format|
       if @phrase.save
