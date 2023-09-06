@@ -14,4 +14,84 @@
   .pagination>li>a:hover {
     border-radius: 15px;    
   }
+
+/* 基本のリセット */
+body, h1, h2, h3, p, a {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  text-decoration: none;
+}
+
+body {
+  background-color: #f9f9f9;
+  color: #333;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* 画面の高さを100%に */
+  background-color: #333;
+  position: relative;
+  z-index: 1;
+}
+
+header h1 {
+  font-family: 'Montserrat', sans-serif;
+  color: #333;               // カラーをダークに
+  font-size: 4em;            // フォントサイズをさらに大きく
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);  // 影の効果を強調
+  letter-spacing: 2px;      // 文字間隔を調整
+  font-weight: bold;        // 太字に
+}
+
+
+.content-container {
+  position: absolute;
+  top: 100vh;
+  width: 100%;
+  z-index: 0; 
+}
+
+
+nav ul {
+  list-style-type: none;
+  padding-left: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: #fff;
+}
+
+main {
+  padding: 50px 0;
+}
+
+footer {
+  background-color: #333;
+  padding: 20px 0;
+  text-align: center;
+}
+
+footer p {
+  color: #fff;
+}
+
+  
   

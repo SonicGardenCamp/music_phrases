@@ -8,15 +8,16 @@ class Phrase < ApplicationRecord
     # validates :artist_name, presence: true
     
     
-      validate :valid_youtube_id
-    
+      
+    def youtube_key
+      key = play_url.match(%r[https://www.youtube.com/watch\?v=([_a-zA-Z0-9]*)])
+      if key.present?
+        key[1]
+      end
+    end
       private
     
-      def valid_youtube_id
-        unless play_url =~ /\A[a-zA-Z0-9_-]{11}\z/
-          errors.add(:play_url, "が正しいYouTubeのIDではありません")
-        end
-      end
+      
     
   
     
