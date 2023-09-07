@@ -17,3 +17,18 @@ ja:
           attributes:
             play_url:
               not_a_valid_youtube_id: "が正しいYouTubeのIDではありません"
+
+
+# config/locales/ja.yml
+
+ja:
+  activerecord:
+    attributes:
+      phrase:
+        content: "お気に入りの歌詞"
+        music_title: "曲名"
+        comment: "歌詞の解釈やエピソード"
+        author_name: "投稿者の名前"
+        artist_name: "アーティスト名"
+        play_url: "Youtube URL"
+

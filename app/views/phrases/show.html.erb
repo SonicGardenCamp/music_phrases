@@ -1,70 +1,55 @@
 <div class="container-fluid mt-5">
 
-  <!-- Row for Content -->
-  <div class="row mb-3">
-
-    <!-- Content Section -->
+  <!-- Content Section -->
+  <div class="row mb-4">
     <div class="col-12">
-      <!-- Large box for the content -->
-      <div class="border p-3" style="height: 12.5vh;">
-        <strong>Content:</strong> <%= @phrase.content %>
+      <div class="p-3 shadow-sm bg-white rounded">
+        <%= @phrase.content %>
       </div>
     </div>
-
   </div>
 
   <!-- Row for Music Details, Author, and URL -->
-  <div class="row mb-3">
-
-    <!-- Music Title Section -->
-    <div class="col-lg-3 col-md-6 col-sm-12 mb-2">
-      <div class="border p-3">
-        <strong>Music title:</strong> <%= @phrase.music_title %>
-      </div>
+  <div class="row mb-4">
+    <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
+      <h5 class="text-muted">曲名</h5>
+      <p><%= @phrase.music_title %></p>
     </div>
 
-    <!-- Artist Name Section -->
-    <div class="col-lg-3 col-md-6 col-sm-12 mb-2">
-      <div class="border p-3">
-        <strong>Artist Name:</strong> <%= @phrase.artist_name %>
-      </div>
+    <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
+      <h5 class="text-muted">アーティスト名</h5>
+      <p><%= @phrase.artist_name %></p>
     </div>
 
-    <!-- Author Name Section -->
-    <div class="col-lg-3 col-md-6 col-sm-12 mb-2">
-      <div class="border p-3">
-        <strong>Author name:</strong> <%= @phrase.author_name %>
-      </div>
+    <div class="col-lg-4 col-md-12 col-sm-12 mb-3">
+      <h5 class="text-muted">投稿者</h5>
+      <p><%= @phrase.author_name %></p>
     </div>
-
-   
-
-
-
-<% if @phrase.youtube_key.present? %>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @phrase.youtube_key%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<% end %>
-
   </div>
 
-  <!-- Row for Comment -->
-  <div class="row mt-5">
-
-    <!-- Comment Section -->
+  <!-- YouTube Embed -->
+  <% if @phrase.youtube_key.present? %>
+  <div class="row mb-4">
     <div class="col-12">
-      <!-- Giving this a slightly bigger box -->
-      <div class="border p-3" style="height: 35vh;">
-        <strong>Comment:</strong> <%= @phrase.comment %>
+      <iframe class="w-100 rounded" style="height: 60vh;" src="https://www.youtube.com/embed/<%= @phrase.youtube_key%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+  <% end %>
+
+  <!-- Comment Section -->
+  <div class="row mt-4">
+    <div class="col-12">
+      <div class="p-3 shadow-sm bg-white rounded">
+        <%= @phrase.comment %>
       </div>
     </div>
+  </div>
 
+  <!-- Link Section -->
+  <div class="mt-4 text-center">
+    <%= link_to "編集する", edit_phrase_path(@phrase), class: "text-primary mr-4" %>
+    <%= link_to "投稿一覧画面に戻る", phrases_path, class: "text-primary mr-4" %>
+    <%= link_to "削除する", phrase_path(@phrase), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "text-danger" %>
   </div>
 
 </div>
-
-<div class="mt-2">
-  <%= link_to "Edit this phrase", edit_phrase_path(@phrase) %> |
-  <%= link_to "Back to phrases", phrases_path %> |
-  <%= button_to "Destroy this phrase", @phrase, method: :delete, class: "btn btn-light mt-2" %>
-</div>
-

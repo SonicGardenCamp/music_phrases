@@ -1,33 +1,21 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
 
-.pagination>li>a {
-    border: none;     
-    color: #696969;   
-  }
-  
-  .pagination>.active>a {
-    background: #93c9ff;     
-    border-radius: 15px;     
-  }
-  
-  .pagination>li>a:hover {
-    border-radius: 15px;    
-  }
-
-/* 基本のリセット */
-body, h1, h2, h3, p, a {
+/* ベーシックなスタイルとリセット */
+body {
   margin: 0;
   padding: 0;
-  font-family: 'Arial', sans-serif;
-  text-decoration: none;
-}
-
-body {
-  background-color: #f9f9f9;
+  font-family: 'Roboto', sans-serif;
+  background-color: #ffffff;  /* 背景色を真っ白に変更 */
   color: #333;
   font-size: 16px;
   line-height: 1.5;
+}
+
+h1, h2, h3, p, a {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
 }
 
 .container {
@@ -36,47 +24,44 @@ body {
   padding: 20px;
 }
 
+/* ヘッダーとナビゲーション */
 header {
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 10px 20px;
+}
+
+nav {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  height: 100vh; /* 画面の高さを100%に */
-  background-color: #333;
-  position: relative;
-  z-index: 1;
-}
-
-header h1 {
-  font-family: 'Montserrat', sans-serif;
-  color: #333;               // カラーをダークに
-  font-size: 4em;            // フォントサイズをさらに大きく
-  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);  // 影の効果を強調
-  letter-spacing: 2px;      // 文字間隔を調整
-  font-weight: bold;        // 太字に
-}
-
-
-.content-container {
-  position: absolute;
-  top: 100vh;
   width: 100%;
-  z-index: 0; 
+  padding: 0;
 }
 
+nav a, nav ul li a {
+  margin-right: 20px;
+  color: #fff;
+}
+
+nav a:last-child, nav ul li:last-child {
+  margin-right: 0;
+}
 
 nav ul {
   list-style-type: none;
   padding-left: 0;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  width: 100%;
+  margin: 0;
 }
 
-nav ul li {
-  margin: 0 15px;
-}
-
-nav ul li a {
-  color: #fff;
+/* コンテンツとフッター */
+.content-container {
+  position: absolute;
+  top: 100vh;
+  width: 100%;
+  z-index: 0;
 }
 
 main {
@@ -93,5 +78,78 @@ footer p {
   color: #fff;
 }
 
+/* 画像 */
+.fullscreen-image {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  display: block;
+}
+
+/* カード */
+.card-title {
+  font-size: 20px;  /* slightly bigger */
+  font-weight: bold;
+  color: #37474f;  /* darkened the color a bit */
+  letter-spacing: 1.2px;  /* increased for style */
+  line-height: 1.5;
+}
+
+.clickable-card {
+  border: 1px solid #e0e0e0;  /* added subtle border */
+  border-radius: 8px;  /* rounded edges to match container */
+  padding: 15px;  /* some internal space */
+  margin: 15px 0;  /* space between cards */
   
+  &:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* ページネーション */
+.pagination>li>a {
+  border: none;
+  color: #696969;
   
+  &:hover {
+    border-radius: 15px;
+  }
+}
+
+.pagination>.active>a {
+  background: #93c9ff;
+  border-radius: 15px;
+}
+
+/* その他 */
+.wide-input {
+  width: 38%;
+  display: block;
+  margin: 10px auto;
+}
+
+.header-section {
+  position: relative;
+}
+
+.title-container, .phrase-form-container {
+  position: absolute;
+  text-align: center;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.title-container {
+  top: 50%;
+}
+
+.phrase-form-container {
+  bottom: 10%;
+}
+
+.back-link-container {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+}

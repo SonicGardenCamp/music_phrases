@@ -6,36 +6,37 @@
   <% end %>
   
   <div>
-    <%= form.label :content, style: "display: block" %>
-    <%= form.text_field :content %>
+    <%= form.label :content, Phrase.human_attribute_name(:content), style: "display: block" %>
+    <%= form.text_field :content, class: 'wide-input' %>
   </div>
 
   <div>
-    <%= form.label :music_title, style: "display: block" %>
-    <%= form.text_field :music_title %>
+    <%= form.label :music_title, Phrase.human_attribute_name(:music_title), style: "display: block" %>
+    <%= form.text_field :music_title, class: 'wide-input' %>
   </div>
 
   <div>
-    <%= form.label :comment, style: "display: block" %>
-    <%= form.text_area :comment %>
+    <%= form.label :comment, Phrase.human_attribute_name(:comment), style: "display: block" %>
+    <%= form.text_area :comment, class: 'wide-input' %>
   </div>
 
   <div>
-    <%= form.label :author_name, style: "display: block" %>
-    <%= form.text_field :author_name %>
+    <%= form.label :author_name, Phrase.human_attribute_name(:author_name), style: "display: block" %>
+    <%= form.text_field :author_name, class: 'wide-input' %>
   </div>
 
   <div>
-    <%= form.label :artist_name, style: "display: block" %>
-    <%= form.text_field :artist_name %>
+    <%= form.label :artist_name, Phrase.human_attribute_name(:artist_name), style: "display: block" %>
+    <%= form.text_field :artist_name, class: 'wide-input' %>
   </div>
 
   <div>
-    <%= form.label :play_url, style: "display: block" %>
-    <%= form.text_field :play_url %>
+    <%= form.label :play_url, Phrase.human_attribute_name(:play_url), style: "display: block" %>
+    <%= form.text_field :play_url, class: 'wide-input' %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit phrase.new_record? ? "投稿する" : "更新", class: 'submit-button' %>
   </div>
+
 <% end %>

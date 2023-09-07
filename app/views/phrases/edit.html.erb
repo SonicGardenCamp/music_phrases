@@ -1,10 +1,47 @@
-<h1>Editing phrase</h1>
 
-<%= render "form", phrase: @phrase %>
+<%= form_with(model: @phrase) do |form| %>
+  <% if @phrase.errors.any? %>
+    <div style="color: red; text-align: center;">
+      <h2><%= @phrase.errors.full_messages.map { |msg| msg == "Play url is not a valid YouTube ID" ? "プレイURLが正しいYouTubeのIDではありません" : msg }.join('、') %>のため、フレーズを保存できませんでした。</h2>
+    </div>
+  <% end %>
 
-<br>
+  <div style="text-align: center;">
+    <%= form.label :content, Phrase.human_attribute_name(:content) %>
+    <%= form.text_field :content, class: "wide-input" %>
+  </div>
 
-<div>
-  <%= link_to "Show this phrase", @phrase %> |
-  <%= link_to "Back to phrases", phrases_path %>
+  <div style="text-align: center;">
+    <%= form.label :music_title, Phrase.human_attribute_name(:music_title) %>
+    <%= form.text_field :music_title, class: "wide-input" %>
+  </div>
+
+  <div style="text-align: center;">
+    <%= form.label :comment, Phrase.human_attribute_name(:comment) %>
+    <%= form.text_area :comment, class: "wide-input" %>
+  </div>
+
+  <div style="text-align: center;">
+    <%= form.label :author_name, Phrase.human_attribute_name(:author_name) %>
+    <%= form.text_field :author_name, class: "wide-input" %>
+  </div>
+
+  <div style="text-align: center;">
+    <%= form.label :artist_name, Phrase.human_attribute_name(:artist_name) %>
+    <%= form.text_field :artist_name, class: "wide-input" %>
+  </div>
+
+  <div style="text-align: center;">
+    <%= form.label :play_url, Phrase.human_attribute_name(:play_url) %>
+    <%= form.text_field :play_url, class: "wide-input" %>
+  </div>
+
+  <div style="text-align: center;">
+    <%= form.submit "更新する" %>
+  </div>
+<% end %>
+
+<div style="text-align: center; margin-top: 20px;">
+  <%= link_to "詳細", @phrase %> |
+  <%= link_to "投稿一覧画面に戻る", phrases_path %>
 </div>
