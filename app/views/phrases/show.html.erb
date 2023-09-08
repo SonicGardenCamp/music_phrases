@@ -31,7 +31,8 @@
   <% if @phrase.youtube_key.present? %>
   <div class="row mb-4">
     <div class="col-12">
-      <iframe class="w-100 rounded" style="height: 60vh;" src="https://www.youtube.com/embed/<%= @phrase.youtube_key%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe class="rounded" style="width: 70%; height: 50vh;" src="https://www.youtube.com/embed/<%= @phrase.youtube_key%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
     </div>
   </div>
   <% end %>
@@ -49,7 +50,7 @@
   <div class="mt-4 text-center">
     <%= link_to "編集する", edit_phrase_path(@phrase), class: "text-primary mr-4" %>
     <%= link_to "投稿一覧画面に戻る", phrases_path, class: "text-primary mr-4" %>
-    <%= link_to "削除する", phrase_path(@phrase), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "text-danger" %>
+    <%= link_to "削除する", phrase_path(@phrase), method: :delete, data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" }, class: "text-danger" %>
   </div>
 
 </div>

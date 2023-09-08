@@ -18,8 +18,7 @@ class PhrasesController < ApplicationController
 
   def create
     @phrase = Phrase.new(phrase_params)
-    url = params[:phrase][:play_url]
-    @phrase.play_url = url.last(11)
+    
 
     respond_to do |format|
       if @phrase.save
@@ -33,16 +32,9 @@ class PhrasesController < ApplicationController
   end
 
   def update
-
     respond_to do |format|
       if @phrase.update(phrase_params)
-        
-        # 更新したフレーズの前にあるフレーズの数をカウント
-        previous_phrases_count = Phrase.where('id < ?', @phrase.id).count
-        # ページ数を計算
-        page_number = (previous_phrases_count.to_f / 12.0).ceil
-
-        format.html { redirect_to phrases_path(page: page_number), notice: "フレーズを正常に更新しました。" }
+        format.html { redirect_to phrases_path, notice: "フレーズを正常に更新しました。" } # ページ指定なしで phrases_path へリダイレクト
         format.json { render :show, status: :ok, location: @phrase }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -50,6 +42,7 @@ class PhrasesController < ApplicationController
       end
     end
 end
+
 
 
   def destroy

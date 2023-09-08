@@ -1,27 +1,7 @@
-ja:
-  views:
-    pagination:
-      first: "&laquo; 最初"
-      last: "最後 &raquo;"
-      previous: "&lsaquo; 前"
-      next: "次 &rsaquo;"
-      truncate: "..."
-
-
-
-ja:
-  activerecord:
-    errors:
-      models:
-        phrase:
-          attributes:
-            play_url:
-              not_a_valid_youtube_id: "が正しいYouTubeのIDではありません"
-
-
 # config/locales/ja.yml
-
 ja:
+  # ... 既存の内容 ...
+
   activerecord:
     attributes:
       phrase:
@@ -31,4 +11,20 @@ ja:
         author_name: "投稿者の名前"
         artist_name: "アーティスト名"
         play_url: "Youtube URL"
-
+    errors:
+      models:
+        phrase:
+          attributes:
+            content:
+              blank: "を入力してください"
+            music_title:
+              blank: "を入力してください"
+            comment:
+              blank: "を入力してください"
+            author_name:
+              blank: "を入力してください"
+            artist_name:
+              blank: "を入力してください"
+            play_url:
+              blank: "を入力してください"
+              not_a_valid_youtube_id: "が正しいYouTubeのIDではありません"
